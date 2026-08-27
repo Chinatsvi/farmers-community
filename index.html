@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2e7d32">
+  <meta name="description" content="Farmer Community - a digital community and farming assistant that helps farmers connect, learn, share knowledge, manage farming activities, and discover agricultural opportunities.">
+  <title>Farmer Community | Connect. Learn. Farm Better.</title>
+  <link rel="icon" type="image/png" href="favicon-256.png">
+  <link rel="apple-touch-icon" href="favicon-256.png">
+
+  <style>
+    :root {
+      --green: #2e7d32;
+      --green-dark: #1b5e20;
+      --green-light: #e8f5e9;
+      --text: #263238;
+      --muted: #607d8b;
+      --white: #ffffff;
+      --bg: #f7faf7;
+      --border: #dce7dd;
+      --shadow: 0 12px 35px rgba(27, 94, 32, .10);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(27, 94, 32, .97);
+      color: white;
+      box-shadow: 0 3px 15px rgba(0,0,0,.12);
+    }
+
+    .nav-inner {
+      width: min(1120px, calc(100% - 32px));
+      margin: auto;
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: white;
+      color: var(--green);
+      font-size: 23px;
+      overflow: hidden;
+    }
+
+    .brand-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-badge img {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      opacity: .95;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1b5e20, #388e3c);
+      color: white;
+      padding: 85px 20px 90px;
+      text-align: center;
+    }
+
+    .hero-inner {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.25);
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(38px, 7vw, 64px);
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto 30px;
+      font-size: clamp(17px, 2.5vw, 21px);
+      opacity: .95;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 23px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 800;
+      margin: 5px;
+      background: white;
+      color: var(--green-dark);
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255,255,255,.65);
+    }
+
+    section {
+      padding: 70px 20px;
+    }
+
+    .container {
+      width: min(1100px, 100%);
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 0 0 12px;
+      color: var(--green-dark);
+      font-size: 34px;
+    }
+
+    .section-intro {
+      max-width: 720px;
+      margin: 0 auto 40px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: var(--green-light);
+      font-size: 27px;
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      color: var(--green-dark);
+      font-size: 19px;
+    }
+
+    .card p {
+      margin: 0;
+      color: #52636b;
+    }
+
+    .about {
+      background: white;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .about h2 {
+      color: var(--green-dark);
+      font-size: 34px;
+      margin-top: 0;
+    }
+
+    .highlight {
+      background: var(--green-light);
+      border-left: 5px solid var(--green);
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 22px;
+    }
+
+    .cta {
+      text-align: center;
+      background: var(--green-light);
+    }
+
+    .cta h2 {
+      color: var(--green-dark);
+      margin-top: 0;
+      font-size: 34px;
+    }
+
+    footer {
+      background: #153d18;
+      color: rgba(255,255,255,.88);
+      padding: 35px 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 7px;
+    }
+
+    @media (max-width: 800px) {
+      .features { grid-template-columns: 1fr 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .nav-links { display: none; }
+      .features { grid-template-columns: 1fr; }
+      .hero { padding: 65px 18px 70px; }
+      section { padding: 55px 18px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#">
+        <span class="brand-icon"><img src="favicon-256.png" alt="AgriBase icon"></span>
+        <span>Farmer Community</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge"><img src="icon-64.png" alt="AgriBase icon"> Built for farmers</div>
+
+      <h1>Farmer Community</h1>
+
+      <p>
+        Connect with farmers, share knowledge, learn practical agriculture,
+        manage farming activities, and discover opportunities — all in one community.
+      </p>
+
+      <!-- Add your Uptodown or other download URL here when ready. -->
+      <a class="button" href="#features">Explore Farmer Community</a>
+      <a class="button secondary" href="#about">Learn More</a>
+    </div>
+  </header>
+
+  <section id="features">
+    <div class="container">
+      <h2 class="section-title">Everything Farmers Need</h2>
+      <p class="section-intro">
+        Farmer Community brings useful agricultural tools, information and
+        community features together in one easy-to-use mobile application.
+      </p>
+
+      <div class="features">
+        <article class="card">
+          <div class="icon">👨‍🌾</div>
+          <h3>Farmer Community</h3>
+          <p>
+            Connect with other farmers, share experiences, publish posts,
+            ask questions and learn from the farming community.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🌱</div>
+          <h3>Farm Management</h3>
+          <p>
+            Keep agricultural records and organize information about crops,
+            production, activities, expenses and yields.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🐄</div>
+          <h3>Animal Management</h3>
+          <p>
+            Keep useful records relating to livestock, feeding, breeding,
+            production, identification and farm activities.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🤖</div>
+          <h3>AI Farming Assistant</h3>
+          <p>
+            Ask farming-related questions and receive AI-powered information
+            to support your agricultural learning and planning.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">☁️</div>
+          <h3>Weather Information</h3>
+          <p>
+            Access weather information and forecasts to help with general
+            agricultural planning and decision-making.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🛒</div>
+          <h3>Marketplace & Jobs</h3>
+          <p>
+            Discover agricultural products, opportunities and farming-related
+            employment listings shared through the community.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container about-grid">
+      <div>
+        <h2>Technology for Better Farming</h2>
+
+        <p>
+          Farmer Community is a farming-focused digital platform designed to
+          make agricultural knowledge, farmer interaction and useful farming
+          tools more accessible.
+        </p>
+
+        <p>
+          The platform is designed for farmers who want to learn, communicate,
+          keep records, discover opportunities and use modern technology to
+          support their farming activities.
+        </p>
+
+        <div class="highlight">
+          <strong>Our goal:</strong>
+          Help farmers connect, learn from one another and make better-informed
+          farming decisions through accessible digital tools and information.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="icon">🌍</div>
+        <h3>Built for the farming community</h3>
+        <p>
+          Farmer Community supports farmers and agricultural communities with
+          practical digital tools, educational resources and community interaction.
+        </p>
+        <br>
+        <p>
+          Features may change and improve as the application develops.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="container">
+      <h2>Join the Farmer Community</h2>
+      <p class="section-intro">
+        Explore the app, connect with fellow farmers and make technology part
+        of your farming journey.
+      </p>
+
+      <a class="button" href="https://chinatsvi.github.io/farmer-community-contact-us/" target="_blank" rel="noopener noreferrer">
+        Contact Us
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Farmer Community</strong></p>
+    <p>Connect. Learn. Farm Better.</p>
+
+    <p>
+      <a href="https://chinatsvi.github.io/farmer-community-privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+      •
+      <a href="https://chinatsvi.github.io/farmer-community-terms/" target="_blank" rel="noopener noreferrer">Terms & Conditions</a>
+      •
+      <a href="https://chinatsvi.github.io/farmer-community-contact-us/" target="_blank" rel="noopener noreferrer">Contact Us</a>
+    </p>
+
+    <p>© 2026 Farmer Community. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
