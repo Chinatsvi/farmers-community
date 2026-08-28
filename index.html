@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <meta name="theme-color" content="#2e7d32">
 
-<meta name="description"
-     content="Farmer Community - a digital community and farming assistant that helps farmers connect, learn, share knowledge, manage farming activities, and discover agricultural opportunities.">
+  <meta name="description"
+        content="Farmer Community - a digital community and farming assistant that helps farmers connect, learn, share knowledge, manage farming activities, and discover agricultural opportunities.">
 
   <title>Farmer Community | Connect. Learn. Farm Better.</title>
 
@@ -16,12 +14,9 @@
   <link rel="apple-touch-icon" href="favicon-256.png">
 
   <!-- Google AdSense account verification -->
-
-<meta name="google-adsense-account"
-     content="ca-pub-2606126305565597">
+  <meta name="google-adsense-account" content="ca-pub-2606126305565597">
 
   <!-- Google AdSense -->
-
   <script async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2606126305565597"
           crossorigin="anonymous"></script>
@@ -30,49 +25,46 @@
     :root {
       --green: #2e7d32;
       --green-dark: #1b5e20;
+      --green-mid: #388e3c;
       --green-light: #e8f5e9;
-      --text: #263238;
-      --muted: #607d8b;
+      --amber: #f9a825;
+      --text: #1f2b23;
+      --muted: #5c6f64;
       --white: #ffffff;
-      --bg: #f7faf7;
-      --border: #dce7dd;
-      --shadow: 0 12px 35px rgba(27, 94, 32, .10);
+      --bg: #f6faf6;
+      --border: #dde9de;
+      --shadow: 0 14px 40px rgba(27, 94, 32, .12);
+      --shadow-sm: 0 6px 18px rgba(27, 94, 32, .08);
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                   Roboto, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       color: var(--text);
       background: var(--bg);
       line-height: 1.65;
     }
 
-    a {
-      color: inherit;
-    }
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
 
+    /* ===== Nav ===== */
     .nav {
       position: sticky;
       top: 0;
-      z-index: 20;
-      background: rgba(27, 94, 32, .97);
+      z-index: 30;
+      background: linear-gradient(90deg, var(--green-dark), var(--green));
       color: white;
-      box-shadow: 0 3px 15px rgba(0,0,0,.12);
+      box-shadow: 0 3px 18px rgba(0,0,0,.14);
     }
 
     .nav-inner {
-      width: min(1120px, calc(100% - 32px));
+      width: min(1160px, calc(100% - 40px));
       margin: auto;
-      min-height: 70px;
+      min-height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -82,117 +74,247 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 11px;
+      gap: 12px;
       text-decoration: none;
       font-weight: 800;
       font-size: 20px;
     }
 
     .brand-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
+      flex: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 11px;
       display: grid;
       place-items: center;
       background: white;
       color: var(--green);
-      font-size: 23px;
+      font-size: 21px;
       overflow: hidden;
     }
 
-    .brand-icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .hero-badge img {
-      width: 22px;
-      height: 22px;
-      border-radius: 6px;
-      object-fit: cover;
-      display: block;
-    }
+    .brand-icon img { width: 100%; height: 100%; object-fit: cover; }
 
     .nav-links {
       display: flex;
-      gap: 20px;
+      align-items: center;
+      gap: 26px;
       font-size: 14px;
       font-weight: 600;
     }
 
     .nav-links a {
       text-decoration: none;
-      opacity: .95;
+      opacity: .92;
+      transition: opacity .2s ease;
     }
 
+    .nav-links a:hover { opacity: 1; }
+
+    .nav-cta {
+      background: white;
+      color: var(--green-dark) !important;
+      padding: 9px 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      opacity: 1 !important;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(0,0,0,.18);
+    }
+
+    .nav-toggle { display: none; }
+
+    /* ===== Hero (left-aligned, logo beside heading) ===== */
     .hero {
-      background: linear-gradient(135deg, #1b5e20, #388e3c);
+      position: relative;
+      background: linear-gradient(160deg, #1b5e20 0%, #2e7d32 55%, #43a047 100%);
       color: white;
-      padding: 85px 20px 90px;
-      text-align: center;
+      overflow: hidden;
+      padding: 78px 20px 100px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      right: -120px;
+      top: -120px;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.06);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: -80px;
+      bottom: -140px;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: rgba(0,0,0,.08);
     }
 
     .hero-inner {
-      max-width: 850px;
+      position: relative;
+      z-index: 1;
+      width: min(1160px, calc(100% - 40px));
       margin: auto;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 50px;
+      align-items: center;
     }
 
-    .hero-badge {
-      display: inline-block;
-      padding: 7px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.14);
-      border: 1px solid rgba(255,255,255,.25);
-      font-size: 13px;
-      margin-bottom: 18px;
+    .hero-content { text-align: left; }
+
+    .hero-title-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .hero-title-row .brand-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 15px;
+      font-size: 28px;
     }
 
     h1 {
-      margin: 0 0 18px;
-      font-size: clamp(38px, 7vw, 64px);
+      margin: 0;
+      font-size: clamp(32px, 4.6vw, 50px);
       line-height: 1.08;
-      letter-spacing: -1.5px;
+      letter-spacing: -1px;
+      text-align: left;
     }
 
-    .hero p {
-      max-width: 720px;
-      margin: 0 auto 30px;
-      font-size: clamp(17px, 2.5vw, 21px);
-      opacity: .95;
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.28);
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 18px;
     }
+
+    .hero-badge img { width: 18px; height: 18px; border-radius: 5px; }
+
+    .hero p.lead {
+      max-width: 560px;
+      margin: 0 0 30px;
+      font-size: clamp(16px, 1.9vw, 19px);
+      opacity: .95;
+      text-align: left;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 34px; }
 
     .button {
-      display: inline-block;
-      padding: 13px 23px;
-      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 24px;
+      border-radius: 12px;
       text-decoration: none;
       font-weight: 800;
-      margin: 5px;
       background: white;
       color: var(--green-dark);
+      box-shadow: var(--shadow-sm);
+      transition: transform .2s ease, box-shadow .2s ease;
     }
+
+    .button:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
 
     .button.secondary {
       background: transparent;
       color: white;
-      border: 1px solid rgba(255,255,255,.65);
+      border: 1.5px solid rgba(255,255,255,.6);
+      box-shadow: none;
     }
 
-    section {
-      padding: 70px 20px;
+    .button.secondary:hover { background: rgba(255,255,255,.1); }
+
+    .hero-stats {
+      display: flex;
+      gap: 34px;
+      flex-wrap: wrap;
     }
 
-    .container {
-      width: min(1100px, 100%);
-      margin: auto;
+    .hero-stats div strong {
+      display: block;
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .hero-stats div span {
+      font-size: 13px;
+      opacity: .85;
+    }
+
+    /* Decorative hero visual */
+    .hero-visual {
+      position: relative;
+      display: grid;
+      place-items: center;
+    }
+
+    .hero-visual-card {
+      width: 100%;
+      max-width: 400px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 24px;
+      padding: 28px;
+      backdrop-filter: blur(6px);
+      display: grid;
+      gap: 14px;
+    }
+
+    .hero-visual-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,.1);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+
+    .hero-visual-row .emoji {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: rgba(255,255,255,.9);
+      display: grid;
+      place-items: center;
+      font-size: 17px;
+      flex: none;
+    }
+
+    .hero-visual-row span { font-size: 14px; font-weight: 600; }
+
+    /* ===== Sections ===== */
+    section { padding: 78px 20px; }
+    .container { width: min(1120px, 100%); margin: auto; }
+
+    .eyebrow {
+      display: block;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 10px;
     }
 
     .section-title {
@@ -200,91 +322,116 @@
       margin: 0 0 12px;
       color: var(--green-dark);
       font-size: 34px;
+      letter-spacing: -.5px;
     }
 
     .section-intro {
-      max-width: 720px;
-      margin: 0 auto 40px;
+      max-width: 680px;
+      margin: 0 auto 46px;
       text-align: center;
       color: var(--muted);
+      font-size: 16px;
     }
 
     .features {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 22px;
     }
 
     .card {
       background: var(--white);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px;
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: var(--shadow-sm);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
       box-shadow: var(--shadow);
+      border-color: rgba(46,125,50,.25);
     }
 
     .icon {
-      width: 52px;
-      height: 52px;
+      width: 54px;
+      height: 54px;
       display: grid;
       place-items: center;
-      border-radius: 14px;
+      border-radius: 15px;
       background: var(--green-light);
       font-size: 27px;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
-    .card h3 {
-      margin: 0 0 8px;
-      color: var(--green-dark);
-      font-size: 19px;
-    }
+    .card h3 { margin: 0 0 8px; color: var(--green-dark); font-size: 19px; }
+    .card p { margin: 0; color: #52636b; }
 
-    .card p {
-      margin: 0;
-      color: #52636b;
-    }
-
-    .about {
-      background: white;
-    }
+    /* ===== About ===== */
+    .about { background: white; }
 
     .about-grid {
       display: grid;
       grid-template-columns: 1.1fr .9fr;
-      gap: 45px;
+      gap: 50px;
       align-items: center;
+    }
+
+    .about-eyebrow {
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 10px;
     }
 
     .about h2 {
       color: var(--green-dark);
-      font-size: 34px;
-      margin-top: 0;
+      font-size: 32px;
+      margin: 0 0 16px;
+      letter-spacing: -.5px;
     }
+
+    .about p { color: var(--muted); }
 
     .highlight {
       background: var(--green-light);
       border-left: 5px solid var(--green);
-      border-radius: 10px;
-      padding: 20px;
-      margin-top: 22px;
+      border-radius: 12px;
+      padding: 22px;
+      margin-top: 24px;
+      color: var(--text);
     }
 
+    .about-card {
+      background: linear-gradient(160deg, var(--green-dark), var(--green-mid));
+      color: white;
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-card .icon { background: rgba(255,255,255,.18); }
+    .about-card h3 { color: white; }
+    .about-card p { color: rgba(255,255,255,.88); }
+
+    /* ===== CTA ===== */
     .cta {
       text-align: center;
-      background: var(--green-light);
+      background: linear-gradient(135deg, var(--green-light), #f1f8f0);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
 
-    .cta h2 {
-      color: var(--green-dark);
-      margin-top: 0;
-      font-size: 34px;
-    }
+    .cta h2 { color: var(--green-dark); margin: 0 0 14px; font-size: 32px; }
 
-    /* Google AdSense */
+    /* ===== Ad slot ===== */
     .ad-slot {
       width: min(1100px, calc(100% - 32px));
-      margin: 22px auto;
+      margin: 26px auto;
       padding: 10px;
       text-align: center;
       overflow: hidden;
@@ -300,365 +447,281 @@
       margin-bottom: 6px;
     }
 
+    /* ===== Footer ===== */
     footer {
-      background: #153d18;
+      background: linear-gradient(180deg, #163d19, #102b13);
       color: rgba(255,255,255,.88);
-      padding: 35px 20px;
+      padding: 44px 20px 30px;
+    }
+
+    .footer-inner {
+      width: min(1120px, calc(100% - 40px));
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 17px;
+    }
+
+    .footer-brand .brand-icon { width: 36px; height: 36px; border-radius: 10px; }
+    .footer-tagline { font-size: 13px; opacity: .75; margin-top: 2px; }
+
+    .footer-links { display: flex; gap: 18px; font-size: 13px; flex-wrap: wrap; }
+    .footer-links a { text-decoration: none; opacity: .85; }
+    .footer-links a:hover { opacity: 1; }
+
+    .footer-bottom {
+      width: min(1120px, calc(100% - 40px));
+      margin: 26px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,.12);
       text-align: center;
-      font-size: 14px;
+      font-size: 12.5px;
+      opacity: .7;
     }
 
-    footer a {
-      color: white;
-      text-decoration: none;
-      margin: 0 7px;
-    }
-
-    @media (max-width: 800px) {
-      .features {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
+    /* ===== Responsive ===== */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-visual { order: -1; }
+      .hero-visual-card { max-width: 460px; }
+      .features { grid-template-columns: 1fr 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 560px) {
-      .nav-links {
-        display: none;
-      }
-
-      .features {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding: 65px 18px 70px;
-      }
-
-      section {
-        padding: 55px 18px;
-      }
-
-      .ad-slot {
-        min-height: 100px;
-      }
+      .nav-links { display: none; }
+      .features { grid-template-columns: 1fr; }
+      .hero { padding: 60px 18px 70px; }
+      section { padding: 56px 18px; }
+      .ad-slot { min-height: 100px; }
+      .hero-title-row { gap: 12px; }
+      .hero-title-row .brand-icon { width: 46px; height: 46px; }
+      .footer-inner { justify-content: center; text-align: center; }
     }
   </style>
-
 </head>
-
 <body>
 
   <!-- Navigation -->
-
   <nav class="nav">
     <div class="nav-inner">
+      <a class="brand" href="#">
+        <span class="brand-icon">
+          <img src="favicon-256.png" alt="Farmer Community icon">
+        </span>
+        <span>Farmer Community</span>
+      </a>
 
-```
-  <a class="brand" href="#">
-    <span class="brand-icon">
-      <img src="favicon-256.png" alt="Farmer Community icon">
-    </span>
-
-    <span>Farmer Community</span>
-  </a>
-
-  <div class="nav-links">
-    <a href="#features">Features</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </div>
-
-</div>
-```
-
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-cta" href="#contact">Get Started</a>
+      </div>
+    </div>
   </nav>
 
   <!-- Hero -->
-
   <header class="hero">
     <div class="hero-inner">
 
-```
-  <div class="hero-badge">
-    <img src="icon-64.png" alt="Farmer Community icon">
-    Built for farmers
-  </div>
+      <div class="hero-content">
+        <span class="hero-badge">
+          <img src="icon-64.png" alt="Farmer Community icon">
+          Built for farmers
+        </span>
 
-  <h1>Farmer Community</h1>
+        <div class="hero-title-row">
+          <span class="brand-icon">
+            <img src="favicon-256.png" alt="Farmer Community logo">
+          </span>
+          <h1>Farmer Community</h1>
+        </div>
 
-  <p>
-    Connect with farmers, share knowledge, learn practical agriculture,
-    manage farming activities, and discover opportunities — all in one community.
-  </p>
+        <p class="lead">
+          Connect with farmers, share knowledge, learn practical agriculture,
+          manage farming activities, and discover opportunities — all in one community.
+        </p>
 
-  <a class="button" href="#features">
-    Explore Farmer Community
-  </a>
+        <div class="hero-actions">
+          <a class="button" href="#features">Explore Farmer Community</a>
+          <a class="button secondary" href="#about">Learn More</a>
+        </div>
 
-  <a class="button secondary" href="#about">
-    Learn More
-  </a>
+        <div class="hero-stats">
+          <div><strong>👨‍🌾 Community</strong><span>Farmers connecting daily</span></div>
+          <div><strong>🤖 AI Assistant</strong><span>Farming guidance on demand</span></div>
+          <div><strong>🐄 Records</strong><span>Crops & livestock tracking</span></div>
+        </div>
+      </div>
 
-</div>
-```
+      <div class="hero-visual">
+        <div class="hero-visual-card">
+          <div class="hero-visual-row"><span class="emoji">🌱</span><span>Track crops, expenses and yields</span></div>
+          <div class="hero-visual-row"><span class="emoji">🐄</span><span>Manage livestock and feeding</span></div>
+          <div class="hero-visual-row"><span class="emoji">☁️</span><span>Check weather before you plan</span></div>
+          <div class="hero-visual-row"><span class="emoji">🛒</span><span>Browse marketplace & jobs</span></div>
+        </div>
+      </div>
 
+    </div>
   </header>
 
   <!-- ================= GOOGLE ADSENSE AD ================= -->
-
   <div class="ad-slot">
-
-```
-<span class="label">Advertisement</span>
-
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2606126305565597"
-     data-ad-slot="7638324548"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-```
-
+    <span class="label">Advertisement</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2606126305565597"
+         data-ad-slot="7638324548"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
   </div>
-
   <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
   </script>
-
   <!-- ===================================================== -->
 
   <!-- Features -->
-
   <section id="features">
-
-```
-<div class="container">
-
-  <h2 class="section-title">
-    Everything Farmers Need
-  </h2>
-
-  <p class="section-intro">
-    Farmer Community brings useful agricultural tools, information and
-    community features together in one easy-to-use mobile application.
-  </p>
-
-
-  <div class="features">
-
-    <article class="card">
-      <div class="icon">👨‍🌾</div>
-
-      <h3>Farmer Community</h3>
-
-      <p>
-        Connect with other farmers, share experiences, publish posts,
-        ask questions and learn from the farming community.
+    <div class="container">
+      <span class="eyebrow">What you get</span>
+      <h2 class="section-title">Everything Farmers Need</h2>
+      <p class="section-intro">
+        Farmer Community brings useful agricultural tools, information and
+        community features together in one easy-to-use mobile application.
       </p>
-    </article>
 
+      <div class="features">
+        <article class="card">
+          <div class="icon">👨‍🌾</div>
+          <h3>Farmer Community</h3>
+          <p>Connect with other farmers, share experiences, publish posts, ask questions and learn from the farming community.</p>
+        </article>
 
-    <article class="card">
-      <div class="icon">🌱</div>
+        <article class="card">
+          <div class="icon">🌱</div>
+          <h3>Farm Management</h3>
+          <p>Keep agricultural records and organize information about crops, production, activities, expenses and yields.</p>
+        </article>
 
-      <h3>Farm Management</h3>
+        <article class="card">
+          <div class="icon">🐄</div>
+          <h3>Animal Management</h3>
+          <p>Keep useful records relating to livestock, feeding, breeding, production, identification and farm activities.</p>
+        </article>
 
-      <p>
-        Keep agricultural records and organize information about crops,
-        production, activities, expenses and yields.
-      </p>
-    </article>
+        <article class="card">
+          <div class="icon">🤖</div>
+          <h3>AI Farming Assistant</h3>
+          <p>Ask farming-related questions and receive AI-powered information to support your agricultural learning and planning.</p>
+        </article>
 
+        <article class="card">
+          <div class="icon">☁️</div>
+          <h3>Weather Information</h3>
+          <p>Access weather information and forecasts to help with general agricultural planning and decision-making.</p>
+        </article>
 
-    <article class="card">
-      <div class="icon">🐄</div>
-
-      <h3>Animal Management</h3>
-
-      <p>
-        Keep useful records relating to livestock, feeding, breeding,
-        production, identification and farm activities.
-      </p>
-    </article>
-
-
-    <article class="card">
-      <div class="icon">🤖</div>
-
-      <h3>AI Farming Assistant</h3>
-
-      <p>
-        Ask farming-related questions and receive AI-powered information
-        to support your agricultural learning and planning.
-      </p>
-    </article>
-
-
-    <article class="card">
-      <div class="icon">☁️</div>
-
-      <h3>Weather Information</h3>
-
-      <p>
-        Access weather information and forecasts to help with general
-        agricultural planning and decision-making.
-      </p>
-    </article>
-
-
-    <article class="card">
-      <div class="icon">🛒</div>
-
-      <h3>Marketplace & Jobs</h3>
-
-      <p>
-        Discover agricultural products, opportunities and farming-related
-        employment listings shared through the community.
-      </p>
-    </article>
-
-  </div>
-
-</div>
-```
-
+        <article class="card">
+          <div class="icon">🛒</div>
+          <h3>Marketplace & Jobs</h3>
+          <p>Discover agricultural products, opportunities and farming-related employment listings shared through the community.</p>
+        </article>
+      </div>
+    </div>
   </section>
 
   <!-- About -->
-
   <section id="about" class="about">
+    <div class="container about-grid">
+      <div>
+        <span class="about-eyebrow">Our mission</span>
+        <h2>Technology for Better Farming</h2>
+        <p>
+          Farmer Community is a farming-focused digital platform designed to
+          make agricultural knowledge, farmer interaction and useful farming
+          tools more accessible.
+        </p>
+        <p>
+          The platform is designed for farmers who want to learn, communicate,
+          keep records, discover opportunities and use modern technology to
+          support their farming activities.
+        </p>
 
-```
-<div class="container about-grid">
+        <div class="highlight">
+          <strong>Our goal:</strong>
+          Help farmers connect, learn from one another and make
+          better-informed farming decisions through accessible digital
+          tools and information.
+        </div>
+      </div>
 
-  <div>
-
-    <h2>Technology for Better Farming</h2>
-
-    <p>
-      Farmer Community is a farming-focused digital platform designed to
-      make agricultural knowledge, farmer interaction and useful farming
-      tools more accessible.
-    </p>
-
-    <p>
-      The platform is designed for farmers who want to learn, communicate,
-      keep records, discover opportunities and use modern technology to
-      support their farming activities.
-    </p>
-
-    <div class="highlight">
-
-      <strong>Our goal:</strong>
-
-      Help farmers connect, learn from one another and make
-      better-informed farming decisions through accessible digital
-      tools and information.
-
+      <div class="about-card">
+        <div class="icon">🌍</div>
+        <h3>Built for the farming community</h3>
+        <p>
+          Farmer Community supports farmers and agricultural communities with
+          practical digital tools, educational resources and community interaction.
+        </p>
+        <br>
+        <p>Features may change and improve as the application develops.</p>
+      </div>
     </div>
-
-  </div>
-
-
-  <div class="card">
-
-    <div class="icon">🌍</div>
-
-    <h3>Built for the farming community</h3>
-
-    <p>
-      Farmer Community supports farmers and agricultural communities with
-      practical digital tools, educational resources and community interaction.
-    </p>
-
-    <br>
-
-    <p>
-      Features may change and improve as the application develops.
-    </p>
-
-  </div>
-
-</div>
-```
-
   </section>
 
   <!-- Contact / CTA -->
-
   <section class="cta" id="contact">
+    <div class="container">
+      <h2>Join the Farmer Community</h2>
+      <p class="section-intro">
+        Explore the app, connect with fellow farmers and make technology part
+        of your farming journey.
+      </p>
 
-```
-<div class="container">
-
-  <h2>Join the Farmer Community</h2>
-
-  <p class="section-intro">
-    Explore the app, connect with fellow farmers and make technology part
-    of your farming journey.
-  </p>
-
-  <a class="button"
-     href="https://chinatsvi.github.io/farmer-community-contact-us/"
-     target="_blank"
-     rel="noopener noreferrer">
-
-    Contact Us
-
-  </a>
-
-</div>
-```
-
+      <a class="button"
+         href="https://chinatsvi.github.io/farmer-community-contact-us/"
+         target="_blank"
+         rel="noopener noreferrer"
+         style="color: var(--green-dark);">
+        Contact Us
+      </a>
+    </div>
   </section>
 
   <!-- Footer -->
-
   <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">
+          <span class="brand-icon">
+            <img src="favicon-256.png" alt="Farmer Community icon">
+          </span>
+          <span>Farmer Community</span>
+        </div>
+        <div class="footer-tagline">Connect. Learn. Farm Better.</div>
+      </div>
 
-```
-<p>
-  <strong>Farmer Community</strong>
-</p>
+      <div class="footer-links">
+        <a href="https://chinatsvi.github.io/farmer-community-privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+        <a href="https://chinatsvi.github.io/farmer-community-terms/" target="_blank" rel="noopener noreferrer">Terms & Conditions</a>
+        <a href="https://chinatsvi.github.io/farmer-community-contact-us/" target="_blank" rel="noopener noreferrer">Contact Us</a>
+      </div>
+    </div>
 
-<p>
-  Connect. Learn. Farm Better.
-</p>
-
-<p>
-
-  <a href="https://chinatsvi.github.io/farmer-community-privacy-policy/"
-     target="_blank"
-     rel="noopener noreferrer">
-    Privacy Policy
-  </a>
-
-  •
-
-  <a href="https://chinatsvi.github.io/farmer-community-terms/"
-     target="_blank"
-     rel="noopener noreferrer">
-    Terms & Conditions
-  </a>
-
-  •
-
-  <a href="https://chinatsvi.github.io/farmer-community-contact-us/"
-     target="_blank"
-     rel="noopener noreferrer">
-    Contact Us
-  </a>
-
-</p>
-
-<p>
-  © 2026 Farmer Community. All rights reserved.
-</p>
-```
-
+    <div class="footer-bottom">
+      © 2026 Farmer Community. All rights reserved.
+    </div>
   </footer>
 
 </body>
