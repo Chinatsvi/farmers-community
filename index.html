@@ -9,6 +9,11 @@
   <link rel="icon" type="image/png" href="favicon-256.png">
   <link rel="apple-touch-icon" href="favicon-256.png">
 
+  <!-- Google AdSense: site verification + Auto ads -->
+  <meta name="google-adsense-account" content="ca-pub-2606126305565597">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2606126305565597"
+    crossorigin="anonymous"></script>
+
   <style>
     :root {
       --green: #2e7d32;
@@ -271,6 +276,27 @@
       margin: 0 7px;
     }
 
+    /* Ad slot wrapper: sits directly below the hero so it's visible
+       without scrolling on most screens, but doesn't crowd the hero
+       content or push the primary CTA out of view. */
+    .ad-slot {
+      width: min(1100px, calc(100% - 32px));
+      margin: 22px auto 0;
+      padding: 10px;
+      text-align: center;
+      overflow: hidden;
+      min-height: 90px;
+    }
+
+    .ad-slot span.label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
     @media (max-width: 800px) {
       .features { grid-template-columns: 1fr 1fr; }
       .about-grid { grid-template-columns: 1fr; }
@@ -281,6 +307,7 @@
       .features { grid-template-columns: 1fr; }
       .hero { padding: 65px 18px 70px; }
       section { padding: 55px 18px; }
+      .ad-slot { min-height: 100px; }
     }
   </style>
 </head>
@@ -318,6 +345,27 @@
       <a class="button secondary" href="#about">Learn More</a>
     </div>
   </header>
+
+  <!-- ================= AD SLOT: above-the-fold, below hero ================= -->
+  <!-- This is the clearest "visible without scrolling" spot: it sits right
+       after the hero on load and above all page content, without being
+       inside the hero itself (which AdSense discourages, since it can look
+       like it's part of your brand/nav). Replace data-ad-slot below with
+       the actual ad unit ID you create in your AdSense dashboard
+       (Ads > By ad unit > Display ads). The publisher ID is already wired. -->
+  <div class="ad-slot">
+    <span class="label">Advertisement</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2606126305565597"
+         data-ad-slot="REPLACE_WITH_YOUR_AD_UNIT_ID"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </div>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+  <!-- ========================================================================= -->
 
   <section id="features">
     <div class="container">
