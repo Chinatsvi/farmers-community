@@ -461,6 +461,21 @@
 
     .card p { margin: 0; color: var(--muted); font-size: 14.5px; }
 
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 14px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--soil);
+    }
+
+    .card:hover .card-link { text-decoration: underline; }
+
     /* ===== About ===== */
     .about { background: var(--paper); }
 
@@ -776,6 +791,7 @@
           Learn about crop production, planting, soil preparation,
           fertilization, pest management, harvesting and better yields.
         </p>
+        <span class="card-link">Click here →</span>
       </a>
       <a href="https://chinatsvi.github.io/livestock/" class="card reveal" style="text-decoration:none;">
         <div class="icon icon-gold">🐄</div>
@@ -784,6 +800,7 @@
           Practical information about poultry, cattle, goats, pigs,
           fish farming, feeding, breeding, health and farm management.
         </p>
+        <span class="card-link">Click here →</span>
       </a>
       <a href="https://chinatsvi.github.io/Agribusiness/" class="card reveal" style="text-decoration:none;">
         <div class="icon icon-soil">💰</div>
@@ -792,6 +809,7 @@
           Learn about farm budgeting, production costs, profitability,
           marketing, record keeping and building sustainable farm businesses.
         </p>
+        <span class="card-link">Click here →</span>
       </a>
       <a href="https://chinatsvi.github.io/digital-farming/" class="card reveal" style="text-decoration:none;">
         <div class="icon icon-ink">📱</div>
@@ -800,6 +818,7 @@
           Discover how digital tools, weather information, farm records,
           sensors, AI and farmer communities can support modern agriculture.
         </p>
+        <span class="card-link">Click here →</span>
       </a>
     </div>
   </div>
